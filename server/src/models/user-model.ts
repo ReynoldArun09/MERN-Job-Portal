@@ -16,6 +16,10 @@ const userSchema = new mongoose.Schema<IUser>(
       type: String,
       required: true,
     },
+    phoneNumber: {
+      type: Number,
+      required: true,
+    },
     role: {
       type: String,
       enum: ["student", "recruiter"],
