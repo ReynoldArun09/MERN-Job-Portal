@@ -33,6 +33,13 @@ export enum HttpStatusCode {
   FORBIDDEN = 403,
 }
 
-export enum ApiSuccessMessages {}
+export enum ApiSuccessMessages {
+  USER_CREATED = "User created successfully",
+  USER_LOGGED_IN = "User logged in successfully",
+  USER_LOGGED_OUT = "User logged out successfully",
+}
 
-export enum ApiErrorMessages {}
+export enum ApiErrorMessages {
+  USER_ALREADY_EXISTS = "User already exists",
+  USER_NOT_FOUND = "User not found",
+}

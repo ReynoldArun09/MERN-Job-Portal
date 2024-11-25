@@ -1,0 +1,119 @@
+openapi: 3.1.0
+info:
+  title: Job Portal
+  description: API documentation for the job portal
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+paths:
+  /api/v1/auth/signup:
+    post:
+      summary: register user
+      description: register route for users
+      requestBody:
+        description: user credentials
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/signup"
+              required:
+                - email:
+                - password:
+                - fullname:
+                - role:
+                - phoneNumber:
+              example:
+                email: user@example.com
+                password: password123456789A$
+                fullname: johndoe
+                role: student
+                phoneNumber: 1234567890
+      responses:
+        "201":
+          description: "User created successfully"
+        "400":
+          description: "User already exists"
+        "500":
+          description: "Oops! Something went wrong. Please try again later."
+
+  /api/v1/auth/signin:
+    post:
+      summary: login user
+      description: route for login user
+      requestBody:
+        description: credentials
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/signin"
+              required:
+                - email:
+                - password:
+                - role:
+              example:
+                email: user@example.com
+                password: password123456789A$
+                role: student
+      responses:
+        "201":
+          description: "User logged in successfully"
+        "400":
+          description: "User not found"
+        "500":
+          description: "Oops! Something went wrong. Please try again later."
+
+  /api/v1/auth/signout:
+    post:
+      summary: signout user
+      description: route for signout
+      responses:
+        "200":
+          description: "User logged out successfully"
+        "500":
+          description: "Oops! Something went wrong. Please try again later."
+
+components:
+  schemas:
+    signup:
+      type: object
+      required:
+        - email
+        - password
+        - fullname
+        - role
+        - phoneNumber
+      properties:
+        fullname:
+          type: string
+        email:
+          type: string
+          format: email
+        role:
+          type: string
+          enum:
+            - student
+            - recruiter
+        password:
+          type: string
+        phoneNumber:
+          type: number
+          maxLength: 10
+    signin:
+      type: object
+      required:
+        - email
+        - password
+        - role
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+        role:
+          type: string
+          enum:
+            - student
+            - recruiter

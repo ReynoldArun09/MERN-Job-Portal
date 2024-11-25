@@ -6,6 +6,7 @@ import swaggerUI from "swagger-ui-express";
 import YAML from "yamljs";
 import { ParsedEnvVariables } from "./config";
 import { ErrorMiddleware, RouteNotFound } from "./middlewares";
+import { authRoutes } from "./routes";
 
 const app: Application = express();
 const swaggerSpec = YAML.load("./src/lib/swagger.yaml");
@@ -23,6 +24,7 @@ app.use(cookieParser());
 app.disable("x-powered-by");
 
 app.use("/api/v1/docs", swaggerUI.serve, swaggerUI.setup(swaggerSpec));
+app.use("/api/v1/auth", authRoutes);
 
 app.use(RouteNotFound);
 app.use(ErrorMiddleware);
