@@ -1,0 +1,15 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "job portal",
+  "main": "build/server.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "job",
+    "portal"
+  ],
+  "author": "reynold",
+  "license": "ISC"
+}
