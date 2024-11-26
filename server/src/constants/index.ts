@@ -12,6 +12,7 @@ export enum GlobalErrorMessages {
   MONGO_CONNECTION_ERROR = "MongoDB connection error: ",
   INVALID_ID = "The ID you entered is invalid.",
   INTERNAL_SERVER_ERROR = "Oops! Something went wrong. Please try again later.",
+  UNAUTHORIZED = "You are not authorized to perform this action.",
 }
 
 export enum ValidationMessages {
@@ -42,4 +43,5 @@ export enum ApiSuccessMessages {
 export enum ApiErrorMessages {
   USER_ALREADY_EXISTS = "User already exists",
   USER_NOT_FOUND = "User not found",
+  INVALID_TOKEN = "The token you entered is invalid. Please try again.",
 }
