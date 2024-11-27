@@ -38,10 +38,17 @@ export enum ApiSuccessMessages {
   USER_CREATED = "User created successfully",
   USER_LOGGED_IN = "User logged in successfully",
   USER_LOGGED_OUT = "User logged out successfully",
+  JOB_APPLICATION_CREATED = "Job application created",
+  JOB_CREATED = "New job created successfully.",
+  COMPANY_CREATED = "Company created successfully.",
 }
 
 export enum ApiErrorMessages {
   USER_ALREADY_EXISTS = "User already exists",
   USER_NOT_FOUND = "User not found",
   INVALID_TOKEN = "The token you entered is invalid. Please try again.",
+  APPLICATION_ALREADY_EXISTS = "You have already applied for this job.",
+  JOB_NOT_FOUND = "Job not found",
+  COMPANY_ALREADY_EXISTS = "Company with that name already exist",
+  COMPANY_NOT_FOUND = "Company not found",
 }
